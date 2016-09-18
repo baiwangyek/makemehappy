@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="happyApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Make me happy</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="HappyController as happy">
+    <!-- BACKGROUND -->
+    <div class="box box-size5"></div>
+    <div class="box box-size3"></div>
+    <div class="box box-size2"></div>
+    <div class="box box-twinkle"></div>
+    <div class="star"></div>
+    <div class="star yellow"></div>
+    <div class="star tomato"></div>
+    <div class="star steelblue"></div>
+
+    <!-- CONTENT -->
+    <header>
+      <div class="header-left">
+        <a target="_blank" class="icon facebook"
+        href="http://www.facebook.com/sharer/sharer.php?u=http://petragregorova.com/articles/social-share-buttons-with-custom-icons/&title=Make me happy"></a>
+        <a target="_blank" class="icon twitter"
+        href="http://twitter.com/intent/tweet?status=Make me happy+http://petragregorova.com/articles/social-share-buttons-with-custom-icons/"></a>
+      </div>
+      <div class="header-right">
+        <span ng-click="happy.science=true" class="icon info"></span>
+      </div>
+      <span ng-click="happy.pref=true; happy.prefCounter = true;" class="cog"></span>
+    </header>
+    <section>
+      <div class="front-page">
+      <!-- FRONT PAGE -->
+
+        <button ng-init="happy.front=true" ng-click="happy.front = false; happy.fetch()" ng-show="happy.front" class="smiley-button" type="button" name="button"><h1 class="smiley-icon"> :)</h1></button>
+        <h1 ng-show="happy.front">MAKE ME HAPPY</h1>
+
+      <!-- ACTION PAGE -->
+        <img ng-show="!happy.front" class="gif" ng-src="https://media4.giphy.com/media/{{happy.id}}/200.gif">
+        <button ng-show="!happy.front" ng-click="happy.fetch()" class="more-button" type="button" name="button">Give me more</button>
+      </div>
+    </section>
+    <!-- SCIENCE EXPLANATION-->
+    <div ng-show="happy.science" class="science-body">
+      <div class="science-box">
+          <h1 class="h1-science">The science behind the why and how cute animals make us more happy</h1>
+          <h2>TLDR – We are visual creatures and we are programmed to be susceptible to attributes associated with cuteness to trigger care-taking behaviours.</h2>
+          <p>
+            We have always been fascinated with cute animals. Heck, the internet, with its vast sea of knowledge, has always been associated with one thing - cute cats. Companies have also picked up on this phenomena and used cute puppies to sell toilet paper, and it worked!! <br><br>
+
+            Clearly based on these evidences alone, it is obvious that cute animals are able to provoke a sense of positivity in all of us. But why? <br><br>
+
+            Konrad Lorenz, a Nobel-winning Austrian zoologist was the first person to study this and is often thought of as the father of cuteness research. He observed a set of characteristics (large eyes, bulbous foreheads and small chins), in human and animal babies, that he termed "kindchenschema" and believed triggered care-taking behavior in a parent. <br><br>
+
+            In one 2009 study, researchers manipulated pictures of babies to give them less pronounced baby features or more pronounced baby features. The participants felt a stronger drive to take care of babies with more more pronounced baby features. <br><br>
+
+            In another study, researchers from Hiroshima University found people who had looked at pictures of baby animals subsequently did better in tasks that required concentration. It is suggested that we are more productive and attentive when we see cute animals. <br><br>
+
+            So if you have a friend or colleague that need that extra boost, share this website and make their day :)
+          </p>
+          <i ng-click="happy.science=false" class="icon cross"></i>
+      </div>
+    </div>
+    <!-- PREFERANCE -->
+    <div ng-class="happy.pref ? 'slide-left' : happy.prefCounter ? 'slide-right' : ''" class="pref-body">
+      <i ng-click="happy.pref=false" class="icon cross"></i>
+      <h1>SETTINGS</h1>
+      <p>You can choose the animal that you prefer</p>
+      <form class="">
+        <input id="animals" type="radio" ng-model="happy.prefAnimal" name="pref" value="cute+animals"><label for="animals">Animals</label><br><br>
+        <input id="kittens" type="radio" ng-model="happy.prefAnimal" name="pref" value="cute+kittens"><label for="kittens">Kittens</label><br><br>
+        <input id="puppies" type="radio" ng-model="happy.prefAnimal" name="pref" value="cute+puppies"><label for="puppies">Puppies</label><br><br>
+        <input id="babies" type="radio" ng-model="happy.prefAnimal" name="pref" value="cute+bunnies"><label for="babies">Bunnies</label><br><br>
+        <input id="alpacas" type="radio" ng-model="happy.prefAnimal" name="pref" value="cute+alpacas"><label for="alpacas">Alpacas</label><br><br>
+        <input id="pusheen" type="radio" ng-model="happy.prefAnimal" name="pref" value="cute+pusheen"><label for="pusheen">Pusheen</label>
+      </form>
+    </div>
+    <footer>
+      <p>- Made by baiwang with giphy</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,303 @@
+/*******************
+UNDER THE HOOD
+*******************/
+*{
+  box-sizing: border-box;
+}
+
+img{
+  max-width: 100%;
+}
+
+/*****************
+FONT
+*****************/
+
+@import 'https://fonts.googleapis.com/css?family=Cantarell:400i|Playfair+Display';
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.h1-science {
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 1.20;
+    opacity: 1.00;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    letter-spacing: -0.72px;
+    word-spacing: 0.00px;
+    text-transform: none;
+}
+
+h2 {
+    font-family: 'Cantarell', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 1.00;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    letter-spacing: -0.72px;
+    word-spacing: 0.00px;
+    text-transform: none;
+    margin-bottom: 30px;
+}
+
+p {
+    font-family: "Karla", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.60;
+    opacity: 0.90;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    letter-spacing: -0.30px;
+    word-spacing: -0.10px;
+    text-transform: none;
+}
+
+
+
+/*********************
+HEADER
+**********************/
+header{
+  height: 100px;
+  width: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.header-left{
+	display: flex;
+  justify-content: space-around;
+}
+
+.header-right{
+	display: flex;
+}
+
+.icon{
+  width: 40px;
+  height: 40px;
+}
+
+.facebook{
+  background: url(../img/icon/fb.png) no-repeat;
+  background-size: cover;
+  margin-left: 30px;
+}
+
+.twitter{
+  background: url(../img/icon/twitter.png) no-repeat;
+  background-size: cover;
+  margin-left: 50px;
+}
+
+.info{
+  background: url(../img/icon/info.png) no-repeat;
+  background-size: cover;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.cog{
+  background: url(../img/icon/cog.png) no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  &:hover{
+    animation: spin 2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  100%{transform: rotate(-360deg);}
+}
+
+/************************
+SCIENCE
+**************************/
+.science-body{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background: rgba(50,50,50, .7);
+  justify-content: center;
+  align-items: center;
+}
+
+.science-box{
+  background: white;
+  height: 500px;
+  max-width: 700px;
+  width: 80%;
+  border-radius: 20px;
+  padding: 50px;
+  left: 0px;
+  margin-top: 40px;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.cross{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: url(../img/icon/cross.png) no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+/************************
+PREFERENCE
+**************************/
+
+.pref-body{
+  position: absolute;
+  width: 300px;
+  padding: 40px;
+  height: 100%;
+  background: white;
+  //animation: slide-left .5s forwards;
+  top: 0px;
+  right: -300px;
+  box-shadow: 0px 0px 4px;
+  overflow-y: auto;
+  h1{
+    text-align: center;
+    font-size: 30px;
+  }
+  label{
+    display: inline-block;
+  }
+}
+
+.slide-left{
+  animation: slide-left .5s forwards;
+}
+
+.slide-right{
+  animation: slide-right .5s alternate forwards;
+}
+
+@keyframes slide-left {
+  0%{top: 0px;
+    right: -300px;}
+  100%{top: 0px;
+    right: 0px;}
+}
+
+@keyframes slide-right {
+  0%{top: 0px;
+    right: 0px;}
+  100%{top: 0px;
+    right: -300px;}
+}
+
+/*************************
+MAIN CONTENT
+************************/
+//FRONT PAGE
+
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.smiley-button{
+  background-color: yellow;
+  border-bottom: 5px solid darken(yellow,10%);
+  width: 100px;
+  height: 100px;
+  margin-bottom: 50px;
+  &:focus{
+    transform: scale(.9);
+    background: yellow;
+    border-bottom: 10px solid yellow;
+    outline:0;
+  }
+  &:hover{
+    background: yellow;
+  }
+}
+
+.smiley-icon{
+    transform: rotate(90deg);
+    font-size: 70px;
+    margin-left: 10px;
+}
+
+.front-page{
+  text-align: center;
+  color: white;
+}
+
+
+//ACTION PAGE
+.gif{
+    width: 500px;
+    max-height: 500px;
+    z-index: 5;
+}
+
+.more-button{
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  z-index: 5;
+  background: transparent;
+  border: 2px solid;
+  &:active{
+    transform: scale(.9);
+    background: tomato;
+    border: 2px solid tomato;
+  }
+  &:focus{
+    background: transparent;
+    border: 2px solid;
+    outline:0;
+  }
+  &:hover{
+    background: transparent;
+    border: 2px solid;
+  }
+
+}
+
+/*************************
+FOOTER
+************************/
+
+footer{
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  right: 5%;
+  z-index: -1;
+}
+
+/************************
+MEDIA QUERIES
+************************/
+
+@media screen and (max-width : 600px) {
+  .science-box{
+    padding: 30px;
+  }
+}
